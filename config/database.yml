@@ -19,14 +19,14 @@ default: &default
 
 development:
   <<: *default
-  database: microscopes_development
+  database: microposts_development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: microscopes_test
+  database: microposts_test
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -49,6 +49,6 @@ test:
 #
 production:
   <<: *default
-  database: microscopes_production
-  username: microscopes
-  password: <%= ENV['MICROSCOPES_DATABASE_PASSWORD'] %>
+  database: microposts_production
+  username: microposts
+  password: <%= ENV['MICROPOSTS_DATABASE_PASSWORD'] %>
