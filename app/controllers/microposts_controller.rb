@@ -10,6 +10,7 @@ class MicropostsController < ApplicationController
     else
       @microposts = current_user.feed_microposts.order('created_at DESC').page(params[:params])
       flash.now[:danger] = 'メッセージの投稿に失敗しました。'
+      render 'toppages/index'
     end
   end
 
@@ -25,7 +26,7 @@ class MicropostsController < ApplicationController
     params.require(:micropost).permit(:content)
   end
   
-  def current_user
+  def corrent_user
     @micropost = current_user.microposts.find_by(id: params[:id])
     unless @micropost
       redirect_to root_url
